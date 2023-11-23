@@ -1,12 +1,14 @@
 import { describe, expect, test } from 'vitest'
 import { mount } from '@vue/test-utils'
-import Title from './Title.vue'
+import BaseTitle from './BaseTitle.vue'
+
+const titleProp = "something idk"
 
 describe("testing the title component", () => {
 
-    const wrapper = mount(Title, {
+    const wrapper = mount(BaseTitle, {
         props: {
-            title:"post"
+            title:titleProp
         }
     })
 
@@ -16,9 +18,9 @@ describe("testing the title component", () => {
     test("Should have a span element", () => {
         expect(wrapper.find("span").exists()).toBe(true)
     })
-    test("Should have a title prop", () => {
+    test("Should have a title prop that get's rendered", () => {
         expect(wrapper.props("title")).toBeTruthy()
+        expect(wrapper.props("title")).toBe(titleProp)
+        expect(wrapper.text()).toContain(titleProp)
     })
-
-
 })

@@ -7,6 +7,15 @@ export default defineNuxtConfig({
       enabled: true
     }
   },
-  modules: ["@nuxtjs/tailwindcss", "nuxt-vitest"]
-  
+
+  modules: ["@nuxtjs/tailwindcss"],
+  imports: {
+    presets: [
+      {
+        from: 'vitest',
+        imports: ['describe', "expect", "it", "test", "beforeEach", "afterEach", "afterAll", "beforeAll"]
+      },
+    ]
+  },
+
 })

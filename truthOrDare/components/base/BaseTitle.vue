@@ -1,14 +1,14 @@
 <template>
     <span>
-        
+        {{ title }}        
     </span>
 </template>
 
 <script setup lang="ts">
 
-defineProps<{
-    title:string;
-}>();
+defineProps({
+    title:String
+});
 
 </script>
 
